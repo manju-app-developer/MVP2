@@ -2,16 +2,32 @@
 const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dej6zydgw/image/upload";
 const CLOUDINARY_UPLOAD_PRESET = "Travelgram"; // Replace with your actual upload preset
 
+// Firebase Authentication Import
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+// Initialize Firebase Authentication
+const auth = getAuth();
+
 // Select elements
 const fileInput = document.getElementById("file-input");
 const gallery = document.getElementById("gallery");
 const uploadStatus = document.getElementById("upload-status");
 const uploadBtn = document.getElementById("upload-btn");
+const dropArea = document.getElementById("drop-area");
+
+// Check authentication before allowing uploads
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        uploadBtn.disabled = false;
+    } else {
+        uploadBtn.disabled = true;
+        uploadStatus.innerText = "Login required to upload images.";
+        uploadStatus.style.color = "red";
+    }
+});
 
 // Function to Upload Image to Cloudinary
-async function uploadImage() {
-    let file = fileInput.files[0];
-
+async function uploadImage(file) {
     if (!file) {
         alert("Please select an image first.");
         return;
@@ -58,9 +74,36 @@ function addImageToGallery(imageUrl) {
 }
 
 // Event Listener for File Selection
-fileInput.addEventListener("change", () => {
+fileInput.addEventListener("change", (event) => {
     uploadStatus.innerText = ""; // Clear previous messages
+    let file = event.target.files[0];
+    if (file) {
+        uploadImage(file);
+    }
+});
+
+// Drag & Drop Upload
+dropArea.addEventListener("dragover", (event) => {
+    event.preventDefault();
+    dropArea.classList.add("drag-over");
+});
+
+dropArea.addEventListener("dragleave", () => {
+    dropArea.classList.remove("drag-over");
+});
+
+dropArea.addEventListener("drop", (event) => {
+    event.preventDefault();
+    dropArea.classList.remove("drag-over");
+
+    let file = event.dataTransfer.files[0];
+    if (file) {
+        uploadImage(file);
+    }
 });
 
 // Event Listener for Upload Button
-uploadBtn.addEventListener("click", uploadImage);
+uploadBtn.addEventListener("click", () => {
+    let file = fileInput.files[0];
+    uploadImage(file);
+});
