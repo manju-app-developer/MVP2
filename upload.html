@@ -9,7 +9,19 @@
 <body>
     <div class="container">
         <h1>Upload Your Travel Photo</h1>
-        <input type="file" id="file-input">
+
+        <!-- Drag & Drop or File Input -->
+        <div id="drop-area">
+            <p>Drag & Drop an image here or click to select a file</p>
+            <input type="file" id="file-input" accept="image/*">
+        </div>
+
+        <!-- Image Preview -->
+        <div id="image-preview-container">
+            <img id="image-preview" src="" alt="Preview" style="display: none;">
+        </div>
+
+        <!-- Upload Button -->
         <button onclick="uploadImage()">Upload</button>
         <p id="upload-status"></p>
     </div>
