@@ -5,23 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Explorer - Share Your Adventures</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <script defer src="auth.js"></script>
 </head>
 <body>
-    <!-- Navigation -->
+
+    <!-- Navigation Bar -->
     <nav>
         <div class="logo">🌍 Travel Explorer</div>
-        <button id="login-btn" onclick="googleLogin()">Login with Google</button>
-        <button id="logout-btn" onclick="logout()" style="display: none;">Logout</button>
+        <div class="nav-items">
+            <button id="login-btn" onclick="googleLogin()">Login with Google</button>
+            <div id="user-profile" style="display: none;">
+                <img id="user-photo" src="" alt="User Photo">
+                <span id="user-name"></span>
+                <button id="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </div>
     </nav>
 
-    <!-- Gallery -->
-    <div class="container">
+    <!-- Main Section -->
+    <header class="hero-section">
         <h1>Explore the World Through Photos</h1>
+        <p>Share your travel experiences with the world.</p>
         <a href="upload.html" class="upload-btn">Upload Your Travel Photo</a>
-        <div id="gallery"></div>
-    </div>
+    </header>
 
-    <script src="script.js"></script>
-    <script src="auth.js"></script>
+    <!-- Travel Gallery -->
+    <section class="gallery-container">
+        <h2>Latest Travel Photos</h2>
+        <div id="gallery" class="gallery-grid"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Travel Explorer. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
