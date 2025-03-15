@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Explorer - Share Your Adventures</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">🌍 Travel Explorer</div>
+        <button id="login-btn" onclick="googleLogin()">Login with Google</button>
+        <button id="logout-btn" onclick="logout()" style="display: none;">Logout</button>
+    </nav>
+
+    <!-- Gallery -->
+    <div class="container">
+        <h1>Explore the World Through Photos</h1>
+        <a href="upload.html" class="upload-btn">Upload Your Travel Photo</a>
+        <div id="gallery"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
