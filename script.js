@@ -1,6 +1,6 @@
 // Cloudinary Configuration
 const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dej6zydgw/image/upload";
-const CLOUDINARY_UPLOAD_PRESET = "your_upload_preset"; // Replace with your actual upload preset
+const CLOUDINARY_UPLOAD_PRESET = "Travelgram"; // Replace with your actual upload preset
 
 // Select elements
 const fileInput = document.getElementById("file-input");
