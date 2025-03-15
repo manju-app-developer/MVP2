@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Explorer - Share Your Adventures</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
-    <script defer src="auth.js"></script>
+    <script type="module" src="auth.js"></script>
+    <script type="module" src="script.js"></script>
 </head>
 <body>
 
@@ -14,14 +14,28 @@
     <nav>
         <div class="logo">🌍 Travel Explorer</div>
         <div class="nav-items">
-            <button id="login-btn" onclick="googleLogin()">Login with Google</button>
+            <button id="login-btn">Login</button>
+            <button id="signup-btn">Sign Up</button>
             <div id="user-profile" style="display: none;">
                 <img id="user-photo" src="" alt="User Photo">
                 <span id="user-name"></span>
-                <button id="logout-btn" onclick="logout()">Logout</button>
+                <button id="logout-btn">Logout</button>
             </div>
         </div>
     </nav>
+
+    <!-- Authentication Popup -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login or Sign Up</h2>
+            <input type="email" id="email" placeholder="Enter your email">
+            <input type="password" id="password" placeholder="Enter your password">
+            <button id="email-login-btn">Login</button>
+            <button id="email-signup-btn">Sign Up</button>
+            <button id="google-login-btn">Login with Google</button>
+        </div>
+    </div>
 
     <!-- Main Section -->
     <header class="hero-section">
