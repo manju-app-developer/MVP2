@@ -4,13 +4,15 @@ import { initializeApp } from "firebase/app";
 
 // Firebase Configuration (Replace with your actual keys)
 const firebaseConfig = {
-    apiKey: "YOUR_FIREBASE_API_KEY",
-    authDomain: "YOUR_FIREBASE_AUTH_DOMAIN",
-    projectId: "YOUR_FIREBASE_PROJECT_ID",
-    storageBucket: "YOUR_FIREBASE_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_FIREBASE_MESSAGING_SENDER_ID",
-    appId: "YOUR_FIREBASE_APP_ID"
+  apiKey: "AIzaSyBr0k-tSymwI_yqTRSNL3jxu30WbFzJ4ak",
+  authDomain: "travelgram-260aa.firebaseapp.com",
+  projectId: "travelgram-260aa",
+  storageBucket: "travelgram-260aa.appspot.com",
+  messagingSenderId: "784349147253",
+  appId: "1:784349147253:web:828d603cdb1d4318cec83c",
+  measurementId: "G-C4NFTWY0VX"
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
